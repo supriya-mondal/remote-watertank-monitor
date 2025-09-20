@@ -22,9 +22,18 @@ ion-header ion-title {
   font-size: 1.4rem;
   font-weight: 600;
   text-align: center;
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   z-index: 1;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 ion-header ion-button {
@@ -61,7 +70,7 @@ ion-content {
   gap: 8px;
   min-height: calc(100vh - 56px); /* Account for header height */
   padding-top: 20px; /* Clear top padding for connection status */
-  padding-bottom: calc(12px + env(safe-area-inset-bottom, 8px));
+  padding-bottom: calc(20px + env(safe-area-inset-bottom, 12px)); /* Increased bottom padding */
   box-sizing: border-box;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   position: relative;
@@ -77,7 +86,7 @@ ion-content {
   justify-content: center;
   align-items: center;
   min-height: 0;
-  max-height: 60vh;
+  max-height: 55vh; /* Reduced from 60vh to give more space for buttons */
 }
 
 .main-container::before {
@@ -105,9 +114,10 @@ ion-content {
   flex-direction: column;
   gap: 8px;
   flex-shrink: 0;
-  margin-top: auto;
+  margin-top: 12px; /* Changed from auto to fixed margin to prevent pushing to bottom */
   min-height: 120px;
-  max-height: 25vh;
+  max-height: 30vh; /* Increased from 25vh to ensure buttons are always visible */
+  padding-bottom: 8px; /* Added padding to prevent cutoff */
 }
 
 .check-button {
@@ -219,11 +229,13 @@ ion-content {
   .main-container {
     padding: 15px;
     gap: 15px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 12px)); /* Increased bottom padding */
   }
 
   .controls {
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 15px; /* Fixed margin instead of auto */
+    max-height: 32vh; /* Increased for better visibility */
   }
 
   .check-button {
@@ -395,18 +407,19 @@ ion-content {
     padding: 8px;
     gap: 6px;
     padding-top: 16px; /* Simpler padding for smaller screens */
-    padding-bottom: calc(8px + env(safe-area-inset-bottom, 8px));
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 12px)); /* Increased bottom padding */
   }
 
   .water-section {
     gap: 4px;
-    max-height: 45vh;
+    max-height: 40vh; /* Reduced to give more space for buttons */
   }
 
   .controls {
     gap: 6px;
     min-height: 100px;
-    max-height: 22vh;
+    max-height: 35vh; /* Increased to ensure visibility */
+    margin-top: 8px; /* Reduced margin */
   }
 
   .check-button,
@@ -421,16 +434,17 @@ ion-content {
     padding: 6px;
     gap: 4px;
     padding-top: 12px; /* Minimal padding for small screens */
-    padding-bottom: calc(6px + env(safe-area-inset-bottom, 8px));
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 12px)); /* Increased bottom padding */
   }
 
   .water-section {
-    max-height: 35vh;
+    max-height: 30vh; /* Reduced to prioritize button visibility */
   }
 
   .controls {
     min-height: 90px;
-    max-height: 20vh;
+    max-height: 40vh; /* Increased for button visibility */
+    margin-top: 6px;
   }
 
   .check-button,
@@ -445,16 +459,17 @@ ion-content {
     padding: 4px;
     gap: 2px;
     padding-top: 8px; /* Very minimal padding for tiny screens */
-    padding-bottom: calc(4px + env(safe-area-inset-bottom, 4px));
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 8px)); /* Ensured bottom padding for buttons */
   }
 
   .water-section {
-    max-height: 30vh;
+    max-height: 25vh; /* Reduced to prioritize buttons */
   }
 
   .controls {
     min-height: 70px;
-    max-height: 18vh;
+    max-height: 45vh; /* Significantly increased for button visibility */
+    margin-top: 4px;
   }
 
   .check-button,

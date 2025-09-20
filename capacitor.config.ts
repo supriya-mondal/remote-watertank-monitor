@@ -8,8 +8,12 @@ const config: CapacitorConfig = {
     androidScheme: 'https',
     allowNavigation: [
       'http://agent-water.local',
-      'https://agent-water.local'
-    ]
+      'https://agent-water.local',
+      'http://localhost',
+      'http://127.0.0.1',
+      'http://10.0.2.2'
+    ],
+    cleartext: true
   },
   plugins: {
     CapacitorHttp: {

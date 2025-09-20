@@ -24,13 +24,18 @@ ion-header ion-title {
   font-size: 1.4rem;
   font-weight: 600;
   text-align: center;
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   z-index: 1;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 ion-back-button {
@@ -68,7 +73,7 @@ ion-content::before {
   position: relative;
   z-index: 1;
   min-height: calc(100vh - 56px); /* Account for header height */
-  padding-top: 120px; /* Much more padding to clear the header completely */
+  padding-top: 32px; /* Reduced from 120px to 32px for better spacing */
   padding-bottom: calc(20px + env(safe-area-inset-bottom, 8px));
   box-sizing: border-box;
 }
@@ -262,7 +267,7 @@ ion-button.button-disabled {
 @media (max-width: 768px) {
   .settings-container {
     padding: 15px;
-    padding-top: 110px; /* Ensure content is well below header on mobile */
+    padding-top: 24px; /* Reduced from 110px for better mobile spacing */
     padding-bottom: calc(15px + env(safe-area-inset-bottom, 8px));
   }
 
@@ -280,7 +285,7 @@ ion-button.button-disabled {
 @media (max-height: 700px) {
   .settings-container {
     padding: 12px;
-    padding-top: 100px; /* Still plenty of space for smaller screens */
+    padding-top: 20px; /* Reduced from 100px for compact screens */
     padding-bottom: calc(12px + env(safe-area-inset-bottom, 8px));
   }
 
@@ -292,7 +297,7 @@ ion-button.button-disabled {
 @media (max-height: 600px) {
   .settings-container {
     padding: 8px;
-    padding-top: 90px; /* Adequate padding for very small screens */
+    padding-top: 16px; /* Reduced from 90px for very small screens */
     padding-bottom: calc(8px + env(safe-area-inset-bottom, 8px));
   }
 
