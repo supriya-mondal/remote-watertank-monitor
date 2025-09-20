@@ -1,6 +1,6 @@
 // Header styles for mobile app appearance
 ion-header ion-toolbar {
-  --background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  --background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
   --color: white;
   --border-color: transparent;
   position: relative;
@@ -72,7 +72,7 @@ ion-content {
   padding-top: 20px; /* Clear top padding for connection status */
   padding-bottom: calc(20px + env(safe-area-inset-bottom, 12px)); /* Increased bottom padding */
   box-sizing: border-box;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   position: relative;
   overflow: hidden;
 }
@@ -97,9 +97,9 @@ ion-content {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -121,15 +121,15 @@ ion-content {
 }
 
 .check-button {
-  --background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  --background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
   --color: white;
   font-weight: 600;
   font-size: 1rem;
   --border-radius: 12px;
   height: 48px;
   box-shadow:
-    0 4px 15px rgba(76, 175, 80, 0.3),
-    0 0 20px rgba(76, 175, 80, 0.1);
+    0 4px 15px rgba(8, 145, 178, 0.3),
+    0 0 20px rgba(8, 145, 178, 0.1);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -153,8 +153,8 @@ ion-content {
 .check-button:hover:not(.button-disabled) {
   transform: translateY(-2px);
   box-shadow:
-    0 6px 20px rgba(76, 175, 80, 0.4),
-    0 0 30px rgba(76, 175, 80, 0.2);
+    0 6px 20px rgba(8, 145, 178, 0.4),
+    0 0 30px rgba(8, 145, 178, 0.2);
 }
 
 .check-button.button-disabled {
@@ -164,21 +164,21 @@ ion-content {
 }
 
 .refresh-button {
-  --border-color: rgba(255, 255, 255, 0.6);
-  --color: rgba(255, 255, 255, 0.9);
+  --border-color: rgba(148, 163, 184, 0.6);
+  --color: rgba(248, 250, 252, 0.9);
   font-weight: 500;
   --border-radius: 12px;
   height: 48px;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
-  --background: rgba(255, 255, 255, 0.1);
+  --background: rgba(148, 163, 184, 0.1);
 }
 
 .refresh-button:hover:not(.button-disabled) {
-  --background: rgba(255, 255, 255, 0.2);
-  --border-color: rgba(255, 255, 255, 0.8);
+  --background: rgba(148, 163, 184, 0.2);
+  --border-color: rgba(148, 163, 184, 0.8);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(148, 163, 184, 0.2);
 }
 
 .info-card {
@@ -186,20 +186,20 @@ ion-content {
   align-items: center;
   gap: 6px;
   padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(248, 250, 252, 0.95);
   border-radius: 8px;
   font-size: 0.85rem;
-  color: #666;
+  color: #374151;
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.1),
-    0 0 20px rgba(255, 255, 255, 0.1);
+    0 0 20px rgba(248, 250, 252, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(148, 163, 184, 0.2);
   flex-shrink: 0;
 }
 
 .info-card ion-icon {
-  color: #007bff;
+  color: #0891b2;
   font-size: 14px;
 }
 
@@ -310,45 +310,67 @@ ion-content {
 /* Dark theme support */
 @media (prefers-color-scheme: dark) {
   .main-container {
-    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    background: linear-gradient(135deg, #0c0a09 0%, #1c1917 50%, #292524 100%);
   }
 
   .main-container::before {
     background:
-      radial-gradient(circle at 20% 80%, rgba(52, 152, 219, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(52, 152, 219, 0.2) 0%, transparent 50%);
+      radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
   }
 
-  .info-card {
-    background: rgba(44, 62, 80, 0.9);
-    color: #ecf0f1;
-    border-color: rgba(236, 240, 241, 0.2);
+  ion-header ion-toolbar {
+    --background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
   }
 
-  .settings-panel {
-    background: rgba(44, 62, 80, 0.95);
-    color: #ecf0f1;
-    border-color: rgba(236, 240, 241, 0.2);
+  .check-button {
+    --background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    box-shadow:
+      0 4px 15px rgba(6, 182, 212, 0.3),
+      0 0 20px rgba(6, 182, 212, 0.1);
   }
 
-  .settings-toggle {
-    --color: rgba(236, 240, 241, 0.8);
-  }
-
-  .settings-toggle:hover {
-    --color: rgba(236, 240, 241, 1);
+  .check-button:hover:not(.button-disabled) {
+    box-shadow:
+      0 6px 20px rgba(6, 182, 212, 0.4),
+      0 0 30px rgba(6, 182, 212, 0.2);
   }
 
   .refresh-button {
-    --border-color: rgba(236, 240, 241, 0.6);
-    --color: rgba(236, 240, 241, 0.9);
-    --background: rgba(236, 240, 241, 0.1);
+    --border-color: rgba(203, 213, 225, 0.6);
+    --color: rgba(248, 250, 252, 0.9);
+    --background: rgba(203, 213, 225, 0.1);
   }
 
   .refresh-button:hover:not(.button-disabled) {
-    --background: rgba(236, 240, 241, 0.2);
-    --border-color: rgba(236, 240, 241, 0.8);
+    --background: rgba(203, 213, 225, 0.2);
+    --border-color: rgba(203, 213, 225, 0.8);
+    box-shadow: 0 4px 12px rgba(203, 213, 225, 0.2);
+  }
+
+  .info-card {
+    background: rgba(30, 41, 59, 0.9);
+    color: #e2e8f0;
+    border-color: rgba(148, 163, 184, 0.3);
+  }
+
+  .info-card ion-icon {
+    color: #06b6d4;
+  }
+
+  .settings-panel {
+    background: rgba(30, 41, 59, 0.95);
+    color: #e2e8f0;
+    border-color: rgba(148, 163, 184, 0.3);
+  }
+
+  .settings-toggle {
+    --color: rgba(226, 232, 240, 0.8);
+  }
+
+  .settings-toggle:hover {
+    --color: rgba(226, 232, 240, 1);
   }
 }
 
