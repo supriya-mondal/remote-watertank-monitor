@@ -1,0 +1,14 @@
+{
+  "/status": {
+    "target": "http://agent-water.local",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/water": {
+    "target": "http://agent-water.local",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

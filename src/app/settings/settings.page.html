@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="end">
+      <!-- Empty button container to balance the layout -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="settings-container">
+    <div class="settings-section">
+      <h3>Application Settings</h3>
+
+      <div class="info-container">
+        <div class="setting-item">
+          <ion-label class="setting-label">Device Connection</ion-label>
+          <div class="setting-value">
+            <ion-icon name="checkmark-circle" color="success"></ion-icon>
+            <span>agent-water.local</span>
+          </div>
+          <p class="setting-description">Fixed device hostname for water monitoring</p>
+        </div>
+
+        <div class="setting-item">
+          <ion-label class="setting-label">Connection Status</ion-label>
+          <div class="setting-value">
+            <ion-icon name="wifi" color="primary"></ion-icon>
+            <span>Auto-connect enabled</span>
+          </div>
+          <p class="setting-description">Automatically connects to device on app startup</p>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <ion-button expand="block" fill="outline" size="large" (click)="goBack()">
+          <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+          Back to Home
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h4>About</h4>
+      <p>
+        This settings page is ready for future enhancements. The device is configured
+        to connect to <strong>agent-water.local</strong> automatically.
+      </p>
+      <p>
+        Future features may include:
+      </p>
+      <ul>
+        <li>Notification preferences</li>
+        <li>Data refresh intervals</li>
+        <li>Export data options</li>
+        <li>Theme customization</li>
+      </ul>
+    </div>
+  </div>
+</ion-content>

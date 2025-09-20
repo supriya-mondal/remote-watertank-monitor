@@ -1,0 +1,440 @@
+.tank-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.tank-frame {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  border-radius: 15px 15px 5px 5px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.1),
+    0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.tank-outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid #333;
+  border-radius: 15px 15px 5px 5px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.water {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(65, 150, 255, 0.9) 0%,
+    rgba(30, 120, 220, 0.95) 50%,
+    rgba(20, 100, 200, 1) 100%
+  );
+  transition: height 0.3s ease-out;
+  transform-origin: bottom;
+  z-index: 2;
+}
+
+.water.checking {
+  animation: waterPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes waterPulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(0.98);
+  }
+}
+
+.water-surface {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  animation: waterWave 2s ease-in-out infinite;
+  overflow: hidden;
+}
+
+/* Wave Animations */
+.wave {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 20px,
+    rgba(255, 255, 255, 0.1) 20px,
+    rgba(255, 255, 255, 0.1) 40px
+  );
+  animation: wave-move 3s linear infinite;
+}
+
+.wave-1 {
+  animation-duration: 3s;
+  opacity: 0.7;
+}
+
+.wave-2 {
+  animation-duration: 4s;
+  animation-delay: -1s;
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 15px,
+    rgba(255, 255, 255, 0.15) 15px,
+    rgba(255, 255, 255, 0.15) 30px
+  );
+}
+
+.wave-3 {
+  animation-duration: 5s;
+  animation-delay: -2s;
+  opacity: 0.3;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 25px,
+    rgba(255, 255, 255, 0.08) 25px,
+    rgba(255, 255, 255, 0.08) 50px
+  );
+}
+
+@keyframes wave-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes waterWave {
+  0%, 100% {
+    transform: translateY(0px);
+    border-radius: 50% 50% 0 0;
+  }
+  50% {
+    transform: translateY(-1px);
+    border-radius: 40% 60% 0 0;
+  }
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: bubbleRise 3s ease-in-out infinite;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.bubble:nth-child(2n) {
+  width: 6px;
+  height: 6px;
+  animation-duration: 2.5s;
+}
+
+.bubble:nth-child(3n) {
+  width: 10px;
+  height: 10px;
+  animation-duration: 3.5s;
+}
+
+.bubble:nth-child(4n) {
+  width: 4px;
+  height: 4px;
+  animation-duration: 4s;
+}
+
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(-280px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-300px) scale(0);
+    opacity: 0;
+  }
+}
+
+.tank-labels {
+  position: absolute;
+  right: -50px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+  z-index: 5;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  text-align: center;
+  min-width: 40px;
+  transition: all 0.2s ease;
+}
+
+.label:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.label.full { color: #4CAF50; border-color: #4CAF50; }
+.label.three-quarter { color: #8BC34A; border-color: #8BC34A; }
+.label.half { color: #FF9800; border-color: #FF9800; }
+.label.quarter { color: #FF5722; border-color: #FF5722; }
+.label.empty { color: #F44336; border-color: #F44336; }
+
+.level-display {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  min-width: 200px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.percentage {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.percentage.checking {
+  animation: percentagePulse 1s ease-in-out infinite;
+}
+
+@keyframes percentagePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.status-text {
+  font-size: 1rem;
+  color: #7f8c8d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.level-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.level-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
+  border-radius: 4px;
+  transition: width 2s ease-out, background 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.level-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+/* Enhanced responsive Design */
+@media (max-width: 768px) {
+  .tank-container {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .tank-frame {
+    width: 150px;
+    height: 225px;
+  }
+
+  .tank-labels {
+    right: -40px;
+  }
+
+  .label {
+    font-size: 10px;
+    padding: 1px 4px;
+    min-width: 30px;
+  }
+
+  .percentage {
+    font-size: 2.5rem;
+  }
+
+  .level-display {
+    padding: 15px;
+    min-width: 150px;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1920px) {
+  .tank-frame {
+    width: 250px;
+    height: 375px;
+  }
+
+  .level-display {
+    min-width: 250px;
+    padding: 25px;
+  }
+
+  .percentage {
+    font-size: 3.5rem;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .tank-frame {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  }
+
+  .tank-outline {
+    border-color: #ecf0f1;
+  }
+
+  .level-display {
+    background: rgba(44, 62, 80, 0.95);
+    color: #ecf0f1;
+    border-color: rgba(236, 240, 241, 0.2);
+  }
+
+  .percentage {
+    color: #ecf0f1;
+  }
+
+  .status-text {
+    color: #bdc3c7;
+  }
+
+  .label {
+    background: rgba(44, 62, 80, 0.9);
+    border-color: #7f8c8d;
+    color: #ecf0f1;
+  }
+
+  .level-bar {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .tank-outline {
+    border-width: 4px;
+  }
+
+  .level-display {
+    border: 2px solid #000;
+  }
+
+  .label {
+    border-width: 2px;
+    font-weight: 700;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .water,
+  .percentage,
+  .level-fill,
+  .label {
+    transition: none;
+    animation: none;
+  }
+
+  .water-surface,
+  .bubble,
+  .level-fill::after {
+    animation: none;
+  }
+
+  .water.checking {
+    animation: none;
+  }
+
+  .percentage.checking {
+    animation: none;
+  }
+}
